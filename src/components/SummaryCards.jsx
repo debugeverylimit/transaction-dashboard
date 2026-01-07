@@ -18,9 +18,9 @@ function SummaryCards({ transactions }) {
         flexWrap: "wrap"
       }}
     >
-      <Card title="Income" value={totalIncome} color="green" />
-      <Card title="Expenses" value={totalExpenses} color="red" />
-      <Card title="Net Balance" value={netBalance} color="#333" />
+      <Card title="Income" value={totalIncome} color="#16a34a" />
+      <Card title="Expenses" value={totalExpenses} color="#dc2626" />
+      <Card title="Net Balance" value={netBalance} color="#111827" />
     </div>
   );
 }
@@ -30,13 +30,22 @@ function Card({ title, value, color }) {
     <div
       style={{
         padding: "16px",
-        minWidth: "160px",
-        border: "1px solid #ddd",
-        borderRadius: "6px"
+        minWidth: "180px",
+        borderRadius: "8px",
+        background: "#f9fafb",
+        border: "1px solid #e5e7eb"
       }}
     >
       <p style={{ margin: 0, fontSize: "14px" }}>{title}</p>
-      <h3 style={{ margin: "8px 0", color }}>{value}</h3>
+      <h3
+        style={{
+          margin: "8px 0",
+          color: color || "#111827",
+          fontWeight: 600
+        }}
+      >
+        {value}
+      </h3>
     </div>
   );
 }

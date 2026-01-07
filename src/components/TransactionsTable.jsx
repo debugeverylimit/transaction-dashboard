@@ -34,15 +34,20 @@ function TransactionsTable({ transactions }) {
             </thead>
 
             <tbody>
-                {transactions.map((tx) => (
-                    <tr key={tx.id}>
+                {transactions.map((tx, index) => (
+                    <tr
+                        key={tx.id}
+                        style={{
+                            background: index % 2 === 0 ? "#ffffff" : "#f9fafb"
+                        }}
+                    >
                         <td style={tdStyle}>{formatDate(tx.date)}</td>
                         <td style={tdStyle}>{tx.description}</td>
                         <td style={tdStyle}>{tx.category}</td>
                         <td
                             style={{
                                 ...tdStyle,
-                                color: tx.type === "credit" ? "green" : "red",
+                                color: tx.type === "credit" ? "#16a34a" : "#dc2626",
                                 fontWeight: 500,
                                 textAlign: "right"
                             }}

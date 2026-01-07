@@ -8,7 +8,10 @@ function Filters({
   return (
     <div style={{ display: "flex", gap: "16px", marginTop: "16px" }}>
       <div>
-        <label>Category</label>
+        <label style={{ fontSize: "14px", color: "#374151" }}>
+          Category
+        </label>
+
         <br />
         <select value={selectedCategory} onChange={onCategoryChange}>
           <option value="all">All</option>
@@ -21,7 +24,7 @@ function Filters({
       </div>
 
       <div>
-        <label>Type</label>
+        <label style={{ fontSize: "14px", color: "#374151" }}>Type</label>
         <br />
         <select value={selectedType} onChange={onTypeChange}>
           <option value="all">All</option>

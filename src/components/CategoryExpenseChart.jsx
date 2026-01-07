@@ -39,7 +39,7 @@ function CategoryExpenseChart({ transactions }) {
           <XAxis dataKey="category" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="amount" fill="#8884d8" />
+          <Bar dataKey="amount" fill="#475569" />
         </BarChart>
       </ResponsiveContainer>
     </div>
