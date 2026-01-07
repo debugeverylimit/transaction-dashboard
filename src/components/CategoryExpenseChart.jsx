@@ -24,7 +24,7 @@ function CategoryExpenseChart({ transactions }) {
       }
 
       return acc;
-    }, []);
+    }, []).sort((a, b) => b.amount - a.amount);
 
   if (expenseData.length === 0) {
     return null;
