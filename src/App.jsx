@@ -10,6 +10,15 @@ function App() {
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
+  const activeFilters = [];
+
+  if (selectedCategory !== "all") {
+    activeFilters.push(`Category: ${selectedCategory}`);
+  }
+
+  if (selectedType !== "all") {
+    activeFilters.push(`Type: ${selectedType}`);
+  }
 
   const categories = [...new Set(transactions.map((tx) => tx.category))];
 
@@ -61,6 +70,12 @@ function App() {
             onCategoryChange={(e) => setSelectedCategory(e.target.value)}
             onTypeChange={(e) => setSelectedType(e.target.value)}
           />
+
+          {activeFilters.length > 0 && (
+            <div style={{ marginTop: "12px", color: "#555", fontSize: "14px" }}>
+              <strong>Filters:</strong> {activeFilters.join(" · ")}
+            </div>
+          )}
 
           {filteredTransactions.length === 0 ? (
             <p style={{ marginTop: "16px", color: "#666" }}>
