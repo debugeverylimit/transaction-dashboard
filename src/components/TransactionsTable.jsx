@@ -17,48 +17,50 @@ function formatDate(dateString) {
 
 function TransactionsTable({ transactions }) {
     return (
-        <table
-            style={{
-                width: "100%",
-                borderCollapse: "collapse",
-                marginTop: "16px"
-            }}
-        >
-            <thead>
-                <tr>
-                    <th style={thStyle}>Date</th>
-                    <th style={thStyle}>Description</th>
-                    <th style={thStyle}>Category</th>
-                    <th style={{ ...thStyle, textAlign: "right" }}>Amount</th>
-                </tr>
-            </thead>
+        <div style={{ overflowX: "auto" }}>
+            <table
+                style={{
+                    width: "100%",
+                    borderCollapse: "collapse",
+                    marginTop: "16px"
+                }}
+            >
+                <thead>
+                    <tr>
+                        <th style={thStyle}>Date</th>
+                        <th style={thStyle}>Description</th>
+                        <th style={thStyle}>Category</th>
+                        <th style={{ ...thStyle, textAlign: "right" }}>Amount</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                {transactions.map((tx, index) => (
-                    <tr
-                        key={tx.id}
-                        style={{
-                            background: index % 2 === 0 ? "#ffffff" : "#f9fafb"
-                        }}
-                    >
-                        <td style={tdStyle}>{formatDate(tx.date)}</td>
-                        <td style={tdStyle}>{tx.description}</td>
-                        <td style={tdStyle}>{tx.category}</td>
-                        <td
+                <tbody>
+                    {transactions.map((tx, index) => (
+                        <tr
+                            key={tx.id}
                             style={{
-                                ...tdStyle,
-                                color: tx.type === "credit" ? "#16a34a" : "#dc2626",
-                                fontWeight: 500,
-                                textAlign: "right"
+                                background: index % 2 === 0 ? "#ffffff" : "#f9fafb"
                             }}
                         >
-                            {formatCurrency(tx.amount)}
-                        </td>
+                            <td style={tdStyle}>{formatDate(tx.date)}</td>
+                            <td style={tdStyle}>{tx.description}</td>
+                            <td style={tdStyle}>{tx.category}</td>
+                            <td
+                                style={{
+                                    ...tdStyle,
+                                    color: tx.type === "credit" ? "#16a34a" : "#dc2626",
+                                    fontWeight: 500,
+                                    textAlign: "right"
+                                }}
+                            >
+                                {formatCurrency(tx.amount)}
+                            </td>
 
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 
